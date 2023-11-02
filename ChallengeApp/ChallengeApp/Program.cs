@@ -24,7 +24,7 @@
 //Policz ile razy wystąpiła liczba 
 
 
-int number = 4566;
+int number = 15091970;
 string numberAsString = number.ToString();
 char[] letter = numberAsString.ToCharArray();
 
@@ -48,7 +48,7 @@ foreach (char letterChar in letter)
         {
             counter[i] = 0;
         }
-        Console.WriteLine(counter[i]);
+       
     }
 
 }
@@ -57,4 +57,9 @@ foreach (char letterChar in letter)
 for (int i = 0; i < wynik.Length; i++)
 {
     Console.WriteLine(i + " wystąpiło " + counter[i] + " razy");
+}
+
+for(int i = 9; i>=0; i--)
+{
+    Console.WriteLine(i);
 }
