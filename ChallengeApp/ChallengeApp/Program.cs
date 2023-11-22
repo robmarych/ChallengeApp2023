@@ -1,65 +1,96 @@
-﻿//string name;
-//char sex;
-//int age;
+﻿
+using ChallengeApp;
+using System.Security.Cryptography.X509Certificates;
 
-//name = "Ewa";
-//sex = 'K';
-//age = 33;
-////Console.WriteLine(name +", lat " +  age );
-
-//if (sex == 'K' && age < 30)
-//{
-//    Console.WriteLine("Kobieta poniżej 30 lat");
-//}
-//else if (age == 33 && name == "Ewa")
-//{
-//    Console.WriteLine("Ewa, lat 33 ");
-//}
-//else if ( sex !='K' && age < 18)
-//{
-//    Console.WriteLine("Niepełnoletni Mężczyzna");
-//}
+List <Empoyee> lempoyee = new List<Empoyee>();
 
 
-//Policz ile razy wystąpiła liczba 
+//lempoyee.Add(new Empoyee () {("XXXX", "SDFASF", 52))_  ;
+
+Empoyee empoyee1 = new Empoyee("Robert", "Nowy", 52);
+Empoyee empoyee2 = new Empoyee("Damina", "Damianski", 23);
+Empoyee empoyee3 = new Empoyee("Karol", "Kowalski", 44);
 
 
-int number = 15091970;
-string numberAsString = number.ToString();
-char[] letter = numberAsString.ToCharArray();
 
-int[] counter = new int[10];
+empoyee1.AddScore(3);
+empoyee1.AddScore(4);
+empoyee1.AddScore(5);
 
-int[] wynik = new int[10];
+empoyee2.AddScore(4);
+empoyee2.AddScore(5);
+empoyee2.AddScore(6);
 
-List<int> list = new List<int>();
+empoyee3.AddScore(1);
+empoyee3.AddScore(2);
+empoyee3.AddScore(3);
 
-foreach (char letterChar in letter)
+lempoyee.Add(empoyee1);
+lempoyee.Add(empoyee2);
+lempoyee.Add(empoyee3);
+
+
+var sum = empoyee1.Result;
+
+int MaxResult = -1;
+Empoyee ?empoyeeWithMaxReesut = null; 
+
+foreach (var empoyee in lempoyee)
 {
-
-    for (int i = 0; i < 10; i++)
+    Console.WriteLine( empoyee.Name);
+    if (empoyee.Result > MaxResult )
     {
-
-        if (letterChar.ToString() == i.ToString())
-        {
-            counter[i] = counter[i] + 1;
-        }
-        else if (counter[i] == 0)
-        {
-            counter[i] = 0;
-        }
-       
+        MaxResult = empoyee.Result;
+        empoyeeWithMaxReesut = empoyee;
     }
-
 }
 
+Console.WriteLine(empoyeeWithMaxReesut.Name +" "+ empoyeeWithMaxReesut.Surname+" "+ empoyeeWithMaxReesut.Age +" "+ empoyeeWithMaxReesut.Result);
 
-for (int i = 0; i < wynik.Length; i++)
-{
-    Console.WriteLine(i + " wystąpiło " + counter[i] + " razy");
-}
 
-for(int i = 9; i>=0; i--)
-{
-    Console.WriteLine(i);
-}
+
+
+Console.WriteLine(empoyee1.Name +" "+ empoyee1.Surname +" "+empoyee1.Age );
+
+Console.WriteLine("");
+
+
+//User user1 = new User("Robert", "1234546789");
+//User user2 = new User("Darek", "1234546789");
+//User user3 = new User("Karol", "1234546789");
+//User user4 = new User("Damian", "1234546789");
+
+//user1.AddScore(5);
+//user1.AddScore(2);
+//var result = user1.Result;
+////foreach (var item in user1.Result)
+////{
+// //   Console.WriteLine(item);
+////}    
+//Console.WriteLine( result);
+
+//class User
+//{
+//    //private int score;
+//    private List<int> score = new List<int>();
+
+//    public User(string login, string password)
+//    {
+//        Login = login;
+//        Password = password;
+//    }
+//    public string Login { get; private set; }
+//    public string Password { get; private set; }
+
+//    public int Result   {
+//        get 
+//        {
+//            return score.Sum();
+//        }
+//    }
+//    public void AddScore(int number)
+//    {
+//        //score += number;
+//        score.Add(number);
+//    }
+//}
