@@ -10,6 +10,12 @@ namespace ChallengeApp
     {
         
         private List<int> score = new List<int>();
+
+        public User (string login)
+        {
+            Login = login;
+        }
+
         public User(string login, string password)
         {
             Login = login;

@@ -8,7 +8,7 @@ namespace ChallengeApp
 {
     public class Empoyee
     {
-        private List<int> score = new List<int>();
+        private List<float> grades = new List<float>();
         public Empoyee( string name,  string surname , int age)
         {
             Name = name;
@@ -20,13 +20,32 @@ namespace ChallengeApp
         public string Surname { get; private set; }
         public int Age { get; private set;}
 
-        public int Result
+        //public float Result
+        //{
+        //    get { return grades.Sum(); }
+        //}
+        public void AddGrade(float number) 
         {
-            get { return score.Sum(); }
+           grades.Add(number);
         }
-        public void AddScore(int number) 
+
+        public Statistics GetStatistics()
         {
-           score.Add(number);
+            var statistic = new Statistics();
+            statistic.Average = 0;
+            statistic.Max = float.MinValue;
+            statistic.Min = float.MaxValue;
+
+            foreach (var grade in grades)
+            {
+                statistic.Max = Math.Max(statistic.Max, grade);
+                statistic.Min = Math.Min(statistic.Min, grade);
+
+                statistic.Average += grade; 
+            }   
+            statistic.Average = statistic.Average / grades.Count;
+
+            return statistic;
         }
 
     }
