@@ -4,13 +4,25 @@ using ChallengeApp;
 
 var employee = new Empoyee("Robert", "Jaki", 25);
 employee.AddGrade(2);
-employee.AddGrade(26);
+employee.AddGrade(2);   
 employee.AddGrade(6);
 
-var statistics =  employee.GetStatistics();
-Console.WriteLine($"Averge: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
+var statistic =  employee.GetStatistics();
+Console.WriteLine($"Averge: {statistic.Average:N2}");
+Console.WriteLine($"Min: {statistic.Min}");
+Console.WriteLine($"Max: {statistic.Max}");
+
+var statisticForeach = employee.GetStatisticsWhieForeach();
+var stastisicDoWhile = employee.GetStatisticsWithDoWhie();
+var statiscriFor = employee.GetStatisticFor();
+
+Console.WriteLine($"For  Averge: {statiscriFor.Average:N2} , Min {statiscriFor.Min}, Max {statiscriFor.Max} ");
+Console.WriteLine($"Foreach Averge: {statisticForeach.Average:N2} , Min {statisticForeach.Min}, Max {statisticForeach.Max}  ");
+
+Console.WriteLine($"WhileDo Averge: {stastisicDoWhile.Average:N2} , Min {stastisicDoWhile.Min}, Max {stastisicDoWhile.Max}  ");
+
+
+
 
 
 //List <Empoyee> lempoyee = new List<Empoyee>();
