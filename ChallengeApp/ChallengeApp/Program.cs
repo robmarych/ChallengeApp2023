@@ -1,25 +1,68 @@
 ﻿
 using ChallengeApp;
-//using System.Security.Cryptography.X509Certificates;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Globalization;
 
-var employee = new Empoyee("Robert", "Jaki", 25);
-employee.AddGrade(2);
-employee.AddGrade(2);   
-employee.AddGrade(6);
+Console.WriteLine("Witaj w programie Statystyki do oceny Pracowników");
+Console.WriteLine("===================================================");
+Console.WriteLine();
 
-var statistic =  employee.GetStatistics();
-Console.WriteLine($"Averge: {statistic.Average:N2}");
-Console.WriteLine($"Min: {statistic.Min}");
-Console.WriteLine($"Max: {statistic.Max}");
+var employee = new Empoyee();
 
-var statisticForeach = employee.GetStatisticsWhieForeach();
-var stastisicDoWhile = employee.GetStatisticsWithDoWhie();
-var statiscriFor = employee.GetStatisticFor();
+while(true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
+    var input = Console.ReadLine();
+    // Console.Clear();    
+    if (input == "q")
+    {
+        break;
+    }
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
 
-Console.WriteLine($"For  Averge: {statiscriFor.Average:N2} , Min {statiscriFor.Min}, Max {statiscriFor.Max} ");
-Console.WriteLine($"Foreach Averge: {statisticForeach.Average:N2} , Min {statisticForeach.Min}, Max {statisticForeach.Max}  ");
+        Console.WriteLine($"Excetion catches : {e.Message}");
+    }
+    //finally 
+    //{ 
+    //    Console.WriteLine("finally"); 
+    //}
+   
+}
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Averge: {statistics.Average:N2}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
 
-Console.WriteLine($"WhileDo Averge: {stastisicDoWhile.Average:N2} , Min {stastisicDoWhile.Min}, Max {stastisicDoWhile.Max}  ");
+
+
+
+Console.Read();
+////using System.Security.Cryptography.X509Certificates;
+
+//var employee = new Empoyee("Robert", "Jaki", 25);
+//employee.AddGrade(2);
+//employee.AddGrade(2);   
+//employee.AddGrade(6);
+
+//var statistic =  employee.GetStatistics();
+//Console.WriteLine($"Averge: {statistic.Average:N2}");
+//Console.WriteLine($"Min: {statistic.Min}");
+//Console.WriteLine($"Max: {statistic.Max}");
+
+//var statisticForeach = employee.GetStatisticsWhieForeach();
+//var stastisicDoWhile = employee.GetStatisticsWithDoWhie();
+//var statiscriFor = employee.GetStatisticFor();
+
+//Console.WriteLine($"For  Averge: {statiscriFor.Average:N2} , Min {statiscriFor.Min}, Max {statiscriFor.Max} ");
+//Console.WriteLine($"Foreach Averge: {statisticForeach.Average:N2} , Min {statisticForeach.Min}, Max {statisticForeach.Max}  ");
+
+//Console.WriteLine($"WhileDo Averge: {stastisicDoWhile.Average:N2} , Min {stastisicDoWhile.Min}, Max {stastisicDoWhile.Max}  ");
 
 
 
