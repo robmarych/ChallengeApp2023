@@ -7,10 +7,12 @@ using System.Globalization;
 Console.WriteLine("Witaj w programie Statystyki do oceny Pracowników");
 Console.WriteLine("===================================================");
 Console.WriteLine();
+//
+//var employee = new Empoyee();
 
-var employee = new Empoyee();
+var employee = new Empoyee("Robert", "Jaki", 25, 'M');
 
-while(true)
+while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika: ");
     var input = Console.ReadLine();
